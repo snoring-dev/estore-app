@@ -1,7 +1,14 @@
+export interface Store {
+  id: string;
+  name: string;
+  logoUrl: string;
+}
+
 export interface Billboard {
   id: string;
   label: string;
   imageUrl: string;
+  textColor: string;
 }
 
 export interface Category {

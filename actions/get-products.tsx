@@ -9,7 +9,7 @@ interface Query {
   excludeId?: string;
 }
 
-const URL = `${process.env.NEXT_PUBLIC_API_URL}/products`;
+const URL = `${process.env.NEXT_PUBLIC_API_URL}/${process.env.NEXT_STORE_ID}/products`;
 
 export const getProducts = async (query: Query): Promise<Product[]> => {
   const url = qs.stringifyUrl({
