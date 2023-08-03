@@ -6,6 +6,7 @@ interface Query {
   colorId?: string;
   sizeId?: string;
   isFeatured?: boolean;
+  excludeId?: string;
 }
 
 const URL = `${process.env.NEXT_PUBLIC_API_URL}/products`;

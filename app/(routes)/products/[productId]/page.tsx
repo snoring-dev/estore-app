@@ -12,7 +12,10 @@ interface Props {
 async function ProductPage({ params }: Props) {
   const { productId } = params;
   const product = await getSingleProduct(productId);
-  const suggestions = await getProducts({ categoryId: product.category.id });
+  const suggestions = await getProducts({
+    categoryId: product.category.id,
+    excludeId: productId,
+  });
 
   return (
     <div className="bg-white">
