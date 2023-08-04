@@ -16,7 +16,7 @@ function CartPageClient({ checkoutUrl }: Props) {
 
   const onCheckout = async (
     ids: string[],
-    onSuccess: () => void,
+    onSuccess: (url: string) => void,
     onFailure: () => void
   ) => {
     try {
@@ -27,11 +27,10 @@ function CartPageClient({ checkoutUrl }: Props) {
         }),
       });
 
-      const result = await resp.json();
+      const result: { url: string } = await resp.json();
 
       if (result) {
-        console.log("RESULT =>", result);
-        onSuccess();
+        onSuccess(result.url);
       }
     } catch (e) {
       onFailure();

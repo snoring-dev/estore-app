@@ -10,7 +10,7 @@ import { toast } from "react-hot-toast";
 interface Props {
   onCheckout: (
     ids: string[],
-    onSuccess: () => void,
+    onSuccess: (url: string) => void,
     onFailure: () => void
   ) => void;
 }
@@ -38,8 +38,10 @@ function CartSummary({ onCheckout }: Props) {
   const handleCheckout = () => {
     onCheckout(
       items.map((p) => p.id),
-      () => console.log("Success!"),
-      () => console.log("Failure...")
+      (url) => {
+        window.location.href = url;
+      },
+      () => toast.error("Something went wrong!")
     );
   };
 
@@ -52,7 +54,9 @@ function CartSummary({ onCheckout }: Props) {
           <Currency value={totalPrice} />
         </div>
       </div>
-      <Button className="w-full mt-6">Checkout</Button>
+      <Button onClick={handleCheckout} className="w-full mt-6">
+        Checkout
+      </Button>
     </div>
   );
 }
