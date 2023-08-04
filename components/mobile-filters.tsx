@@ -7,6 +7,7 @@ import { Plus, X } from "lucide-react";
 import { Dialog } from "@headlessui/react";
 import IconButton from "./ui/icon-button";
 import Filter from "./filter";
+import Overlay from "./ui/overlay";
 
 interface Props {
   sizes: Size[];
@@ -30,11 +31,14 @@ function MobileFilters({ sizes, colors }: Props) {
         className="relative z-40 md:hidden"
         onClose={onClose}
       >
-        <div className="fixed inset-0 bg-black bg-opacity-25" />
+        <Overlay />
         <div className="fixed inset-0 z-40 flex">
           <Dialog.Panel className="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-6 shadow-xl">
             <div className="flex items-center justify-end px-4">
-              <IconButton icon={<X size={15} onClick={onClose} color="black" />} />
+              <IconButton
+                onClick={onClose}
+                icon={<X size={15} color="black" />}
+              />
             </div>
             <div className="p-4">
               <Filter valueKey="sizeId" name="Sizes" data={sizes} />
