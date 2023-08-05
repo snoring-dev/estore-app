@@ -24,7 +24,7 @@ export default function RootLayout({
         <ModalProvider />
         <ToastProvider />
         <Navbar />
-        <div className="h-screen mb-20">{children}</div>
+        <div className="mb-20">{children}</div>
         <Footer />
       </body>
     </html>

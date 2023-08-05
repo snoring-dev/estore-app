@@ -38,6 +38,11 @@ function ProductInfo({ data }: Props) {
             style={{ backgroundColor: data.color.value }}
           />
         </div>
+        <div className="flex items-center justify-start">
+          {data.shortDescription && (
+            <p className="text-sm text-black">{data.shortDescription}</p>
+          )}
+        </div>
       </div>
       <div className="mt-10 flex items-center gap-x-3">
         <Button className="flex items-center gap-x-2">
