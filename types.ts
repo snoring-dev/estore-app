@@ -44,4 +44,12 @@ export interface Product {
   size: Size;
   color: Color;
   images: Image[];
+  reviews: Review[];
+}
+
+export interface Review {
+  firstName: string;
+  lastName: string;
+  message: string;
+  createdAt: string;
 }

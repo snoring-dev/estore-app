@@ -3,6 +3,7 @@ import { getSingleProduct } from "@/actions/get-single-product";
 import Gallery from "@/components/gallery";
 import ProductInfo from "@/components/product-info";
 import ProductList from "@/components/product-list";
+import ProductReviews from "@/components/product-reviews";
 import Container from "@/components/ui/container";
 
 interface Props {
@@ -25,6 +26,7 @@ async function ProductPage({ params }: Props) {
             <Gallery images={product.images} />
             <div className="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
               <ProductInfo data={product} />
+              <ProductReviews data={product.reviews} />
             </div>
           </div>
           <hr className="my-10" />
