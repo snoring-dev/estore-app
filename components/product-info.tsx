@@ -5,6 +5,8 @@ import { Product } from "@/types";
 import Currency from "./ui/currency";
 import Button from "./ui/button";
 import { ShoppingCart } from "lucide-react";
+import { MouseEventHandler } from "react";
+import { useCart } from "@/hooks/use-cart";
 
 interface Props {
   data: Product;
@@ -12,10 +14,16 @@ interface Props {
 
 function ProductInfo({ data }: Props) {
   const isMounted = useMounted();
+  const cart = useCart();
 
   if (!isMounted) {
     return null;
   }
+
+  const onAddToCart: MouseEventHandler<HTMLButtonElement> = (e) => {
+    e.stopPropagation();
+    cart.addItem(data);
+  };
 
   return (
     <div>
@@ -45,7 +53,7 @@ function ProductInfo({ data }: Props) {
         </div>
       </div>
       <div className="mt-10 flex items-center gap-x-3">
-        <Button className="flex items-center gap-x-2">
+        <Button onClick={onAddToCart} className="flex items-center gap-x-2">
           Add To Cart
           <ShoppingCart />
         </Button>
