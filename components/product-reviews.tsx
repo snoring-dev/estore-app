@@ -7,6 +7,8 @@ import ReviewForm from "./review-form";
 
 interface Props {
   data: Review[];
+  productId: string;
+  postReviewUrl: string;
 }
 
 const ReviewTab = ({ name, className }: { name: string; className?: string }) => {
@@ -26,7 +28,7 @@ const ReviewTab = ({ name, className }: { name: string; className?: string }) =>
   );
 };
 
-function ProductReviews({ data }: Props) {
+function ProductReviews({ data, productId, postReviewUrl }: Props) {
   return (
     <Tab.Group
       as="div"
@@ -41,7 +43,7 @@ function ProductReviews({ data }: Props) {
           <p className="text-sm text-gray-500 dark:text-gray-400">All product reviews here</p>
         </Tab.Panel>
         <Tab.Panel className="p-4 rounded-lg bg-gray-50 dark:bg-gray-800">
-          <ReviewForm />
+          <ReviewForm url={postReviewUrl} productId={productId} />
         </Tab.Panel>
       </Tab.Panels>
     </Tab.Group>

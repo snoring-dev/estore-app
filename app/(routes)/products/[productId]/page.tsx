@@ -1,5 +1,6 @@
 import { getProducts } from "@/actions/get-products";
 import { getSingleProduct } from "@/actions/get-single-product";
+import { URL as postReviewUrl } from "@/actions/post-review";
 import Gallery from "@/components/gallery";
 import ProductInfo from "@/components/product-info";
 import ProductList from "@/components/product-list";
@@ -26,7 +27,11 @@ async function ProductPage({ params }: Props) {
             <Gallery images={product.images} />
             <div className="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
               <ProductInfo data={product} />
-              <ProductReviews data={product.reviews} />
+              <ProductReviews
+                postReviewUrl={postReviewUrl}
+                productId={productId}
+                data={product.reviews}
+              />
             </div>
           </div>
           <hr className="my-10" />
