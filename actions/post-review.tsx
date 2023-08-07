@@ -2,7 +2,7 @@ import { Review } from "@/types";
 
 export const URL = `${process.env.NEXT_PUBLIC_API_URL}/${process.env.NEXT_STORE_ID}/products`;
 
-type PostReview = Omit<Review, "createdAt">;
+type PostReview = Omit<Review, "createdAt" | "id">;
 
 export const postReview = async (
   url: string,

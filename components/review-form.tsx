@@ -37,7 +37,6 @@ function ReviewForm({ productId, url }: Props) {
       toast.success("Success! Thanks for your message.");
       router.refresh();
     } catch (e) {
-      console.log(e);
       toast.error("Something went wrong");
     } finally {
       setIsLoading(false);

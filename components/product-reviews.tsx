@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { Review } from "@/types";
 import { Tab } from "@headlessui/react";
 import ReviewForm from "./review-form";
+import ListOfReviews from "./list-of-reviews";
 
 interface Props {
   data: Review[];
@@ -40,7 +41,7 @@ function ProductReviews({ data, productId, postReviewUrl }: Props) {
       </Tab.List>
       <Tab.Panels>
         <Tab.Panel className="p-4 rounded-lg bg-gray-50 dark:bg-gray-800">
-          <p className="text-sm text-gray-500 dark:text-gray-400">All product reviews here</p>
+          <ListOfReviews data={data} />
         </Tab.Panel>
         <Tab.Panel className="p-4 rounded-lg bg-gray-50 dark:bg-gray-800">
           <ReviewForm url={postReviewUrl} productId={productId} />

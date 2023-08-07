@@ -48,8 +48,10 @@ export interface Product {
 }
 
 export interface Review {
+  id: string;
   firstName: string;
   lastName: string;
   message: string;
   createdAt: string;
+  rating?: number;
 }
