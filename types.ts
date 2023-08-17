@@ -41,8 +41,8 @@ export interface Product {
   shortDescription: string;
   price: string;
   isFeatured: boolean;
-  size: Size;
-  color: Color;
+  sizes: Size[];
+  colors: Color[];
   images: Image[];
   reviews: Review[];
 }

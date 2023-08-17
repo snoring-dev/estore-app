@@ -17,6 +17,7 @@ async function ProductPage({ params }: Props) {
   const suggestions = await getProducts({
     categoryId: product.category.id,
     excludeId: productId,
+    take: 4,
   });
 
   return (

@@ -36,19 +36,27 @@ function ProductInfo({ data }: Props) {
       <hr className="my-4" />
       <div className="flex flex-col gap-y-4">
         <div className="flex items-center gap-x-4">
-          <h3 className="font-semibold text-black">Size:</h3>
-          <div>{data.size.name}</div>
+          <h3 className="font-semibold text-black">Sizes:</h3>
+          <div>{data.sizes.map((s) => s.name).join(",  ")}</div>
         </div>
         <div className="flex items-center gap-x-4">
           <h3 className="font-semibold text-black">Color:</h3>
-          <div
-            className="h-6 w-6 rounded-full border border-gray-900"
-            style={{ backgroundColor: data.color.value }}
-          />
+          <div className="flex space-x-2">
+            {data.colors.map((c) => (
+              <div
+                key={c.id}
+                className="h-6 w-6 rounded-full border border-gray-300"
+                style={{ backgroundColor: c.value }}
+              />
+            ))}
+          </div>
         </div>
         <div className="flex items-center justify-start">
           {data.shortDescription && (
-            <p className="text-sm text-black">{data.shortDescription}</p>
+            <p
+              className="text-sm text-black"
+              dangerouslySetInnerHTML={{ __html: data.shortDescription }}
+            />
           )}
         </div>
       </div>

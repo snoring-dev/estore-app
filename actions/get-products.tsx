@@ -7,6 +7,7 @@ interface Query {
   sizeId?: string;
   isFeatured?: boolean;
   excludeId?: string;
+  take?: number;
 }
 
 const URL = `${process.env.NEXT_PUBLIC_API_URL}/${process.env.NEXT_STORE_ID}/products`;
