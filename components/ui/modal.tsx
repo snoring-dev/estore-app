@@ -15,7 +15,7 @@ function Modal({ open, onClose, children }: Props) {
   return (
     <Transition show={open} appear as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={onClose}>
-        <Overlay opacity={50} />
+        <Overlay />
         <div className="fixed inset-0 overflow-y-auto">
           <div className="flex min-h-full items-center justify-center p-4 text-center">
             <Transition.Child
