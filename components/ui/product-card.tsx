@@ -33,6 +33,13 @@ function ProductCard({ data }: Props) {
     cart.addItem(data);
   };
 
+  let mainImgUrl = data.images?.[0]?.url ?? '';
+  const mainImage = data.images.find(im => im.isMain);
+  if (mainImage) {
+    mainImgUrl = mainImage.url;
+  }
+  
+
   return (
     <div
       onClick={handleClick}
@@ -41,7 +48,7 @@ function ProductCard({ data }: Props) {
       {/* Image & Actions */}
       <div className="aspect-square rounded-xl bg-gray-100 relative">
         <Image
-          src={data.images?.[0]?.url}
+          src={mainImgUrl}
           alt={data.name}
           className="aspect-square object-cover rounded-md"
           fill
